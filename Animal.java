@@ -1,32 +1,28 @@
-package dennisMohle.myZoo.com;
-
 import java.time.LocalDate;
 import java.time.Period;
 
 public class Animal {
 
-    private String name;
-    private String sex;
-    private String color;
-    private String id;
-    private String origin;
-    private int weight;
-    private LocalDate birthDate;
-    private LocalDate arrivalDate;
+    public static String name;
+    public String sex;
+    public String color;
+    public String id;
+    public String origin;
+    public int weight;
+    public LocalDate birthDate;
+    public String arrivalDate;
 
-    private static int numOfAnimals = 0;
+    public static int numOfAnimals = 0;
 
-    public Animal(String name, String sex, String color, String id, String origin, int weight,
-                  LocalDate birthDate, LocalDate arrivalDate) {
+    public Animal(String name, int sex, String color, String id, String origin, int weight,
+                  double birthDate, String arrivalDate) {
         this.name = name;
-        this.sex = sex;
         this.color = color;
         this.id = id;
         this.origin = origin;
         this.weight = weight;
-        this.birthDate = birthDate;
-        this.arrivalDate = arrivalDate;
-        numOfAnimals++;
+        this.arrivalDate = String.valueOf(LocalDate.parse(arrivalDate));
+        int i = numOfAnimals++;
         System.out.println("\n A new Animal object was created.\n");
     }
 
@@ -35,8 +31,16 @@ public class Animal {
         System.out.println("\n A new Animal object was created.\n");
     }
 
+    public Animal(String name, String color, String id, String origin, int weight, LocalDate birthDate, LocalDate arrivalDate)
+    {
+    }
+
+    public Animal(String name, int sex, String male, String bear, String origin, String s, double birthDate, String arrivalDate)
+    {
+    }
+
     // Name
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -99,12 +103,14 @@ public class Animal {
     }
 
     // ArrivalDate
-    public LocalDate getArrivalDate() {
-        return arrivalDate;
+    public String getArrivalDate() {
+        String arrivalDate1 = arrivalDate;
+        return arrivalDate1;
     }
 
     public void setArrivalDate(LocalDate arrivalDate) {
-        this.arrivalDate = arrivalDate;
+        LocalDate date = LocalDate.now(); // Example LocalDate object
+        String dateString = date.toString(); // Convert LocalDate to String
     }
 
     // Number of Animals
